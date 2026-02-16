@@ -2175,6 +2175,41 @@ import Layout from '../layouts/Layout.astro';
         font-size: 0.9rem;
         margin-bottom: 1.5rem;
       }
+
+      /* Fix 1: Reduce blank space between service items */
+      .service-item {
+        padding: 1.5rem 0;
+      }
+
+      /* Fix 2: Remove translateX hover on mobile (causes "button from left" glitch on touch) */
+      .service-item:hover {
+        transform: none;
+      }
+
+      .service-item::before,
+      .service-item:hover::before {
+        display: none;
+      }
+
+      /* Fix 3: Center portfolio project content on mobile */
+      .project-details {
+        text-align: center;
+        align-items: center;
+      }
+
+      .project-header {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .project-metrics {
+        justify-content: center;
+      }
+
+      .project-tech {
+        justify-content: center;
+      }
     }
   </style>
 
