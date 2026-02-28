@@ -48,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
               <p>Every website we build is 100% hand-coded from the ground up—no templates, no page builders, no shortcuts. We design and develop each site around your business goals, ensuring clean, efficient code, lightning-fast load times, and a structure tailored exactly to your needs.</p>
               <div class="service-features-inline">
                 <span>Hand-Coded</span>
-                <span>Fully Custom Solutions</span>
+                <span>Custom Solutions</span>
                 <span>Clean, Scalable Code</span>
                 <span>Fast Performance</span>
               </div>
@@ -174,22 +174,18 @@ import Layout from '../layouts/Layout.astro';
                     <span class="metric-label">Traffic ↑</span>
                   </div>
                 </div>
-                <div class="project-tech">
-                  <span>Custom Code</span>
-                  <span>SEO & Mobile-First</span>
-                </div>
               </div>
             </a>
 
             <!-- Project 2 -->
             <a href="https://thomasgarciacalling.netlify.app/" target="_blank" class="portfolio-project" data-project="2">
               <div class="project-image-wrapper">
-                <img src="/assets/images/TGCalling2.webp" alt="TG Inbound Solutions" class="project-screenshot">
+                <img src="/assets/images/TGCalling2.webp" alt="CallForge Digital" class="project-screenshot">
                 <div class="project-overlay-gradient"></div>
               </div>
               <div class="project-details">
                 <div class="project-header">
-                  <h3>TG Inbound Solutions</h3>
+                  <h3>CallForge Digital</h3>
                   <span class="view-site-icon">
                     <span class="view-site-label">Visit Site</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -199,7 +195,7 @@ import Layout from '../layouts/Layout.astro';
                     </svg>
                   </span>
                 </div>
-                <p class="project-description">TG Inbound Solutions provides professional inbound call handling services for businesses, helping them capture more leads and deliver a better customer experience. We built them a clean, conversion-focused website that clearly communicates their services and makes it easy for businesses to get started.</p>
+                <p class="project-description">CallForge Digital provides professional inbound call handling services for businesses, helping them capture more leads and deliver a better customer experience. We built them a clean, conversion-focused website that clearly communicates their services and makes it easy for businesses to get started.</p>
                 <div class="project-metrics">
                   <div class="metric">
                     <span class="metric-value">100%</span>
@@ -213,11 +209,6 @@ import Layout from '../layouts/Layout.astro';
                     <span class="metric-value">&lt;1s</span>
                     <span class="metric-label">Load Time</span>
                   </div>
-                </div>
-                <div class="project-tech">
-                  <span>Forms</span>
-                  <span>Payments</span>
-                  <span>Speed</span>
                 </div>
               </div>
             </a>
@@ -2085,12 +2076,15 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .portfolio-track {
-        width: 95%;
+        width: 100%;
+        height: auto;
       }
 
       .portfolio-project,
       .portfolio-project[data-project="2"] {
         grid-template-columns: 1fr;
+        height: 540px;
+        overflow: hidden;
       }
 
       .portfolio-project[data-project="2"] .project-image-wrapper {
@@ -2102,7 +2096,7 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .project-image-wrapper {
-        min-height: 350px;
+        min-height: 250px;
       }
 
       .project-number {
@@ -2112,20 +2106,54 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .project-details {
-        padding: 3rem 2rem;
+        padding: 0.75rem 1rem 0.5rem;
+        justify-content: flex-start;
+      }
+
+      .portfolio-project[data-project="1"] .project-details {
+        padding-top: 0.75rem;
+      }
+
+      .project-header {
+        margin-bottom: 0.5rem;
       }
 
       .project-header h3 {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
+      }
+
+      .project-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
       }
 
       .project-metrics {
-        gap: 1.5rem;
+        gap: 0.5rem;
         flex-wrap: wrap;
+        margin-bottom: 0;
+        padding: 0.5rem 0;
+      }
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .metric-value {
-        font-size: 1.6rem;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      .metric-label {
+        font-size: 0.65rem;
+        line-height: 1.2;
+      }
+
+      .project-tech span {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
       }
 
       .about-content {
@@ -2140,7 +2168,18 @@ import Layout from '../layouts/Layout.astro';
 
       .stat-box {
         flex: 1;
-        min-width: 150px;
+        min-width: 100px;
+        padding: 1.25rem 0.75rem;
+        overflow: visible;
+      }
+
+      .stat-number-large {
+        font-size: 1.7rem;
+        white-space: nowrap;
+      }
+
+      .stat-description {
+        font-size: 0.7rem;
       }
 
       .about-values {
@@ -2176,9 +2215,16 @@ import Layout from '../layouts/Layout.astro';
         margin-bottom: 1.5rem;
       }
 
-      /* Fix 1: Reduce blank space between service items */
+      /* Fix 1: Reduce blank space, stack number above content on mobile */
       .service-item {
         padding: 1.5rem 0;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .service-number-large {
+        font-size: 2.5rem;
+        margin-bottom: 0;
       }
 
       /* Fix 2: Remove translateX hover on mobile (causes "button from left" glitch on touch) */
@@ -2189,6 +2235,20 @@ import Layout from '../layouts/Layout.astro';
       .service-item::before,
       .service-item:hover::before {
         display: none;
+      }
+
+      /* Fix 3: Always show feature tags on mobile, 2 per row */
+      .service-features-inline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .service-features-inline span {
+        opacity: 1;
+        transform: translateY(0);
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
       }
 
       /* Fix 3: Center portfolio project content on mobile */
