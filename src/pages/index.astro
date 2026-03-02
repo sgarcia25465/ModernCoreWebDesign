@@ -178,7 +178,7 @@ import Layout from '../layouts/Layout.astro';
             </a>
 
             <!-- Project 2 -->
-            <a href="https://thomasgarciacalling.netlify.app/" target="_blank" class="portfolio-project" data-project="2">
+            <a href="https://callforgedigital.netlify.app/" target="_blank" class="portfolio-project" data-project="2">
               <div class="project-image-wrapper">
                 <img src="/assets/images/TGCalling2.webp" alt="CallForge Digital" class="project-screenshot">
                 <div class="project-overlay-gradient"></div>
@@ -256,7 +256,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="stat-description">Hand-Coded</div>
             </div>
             <div class="stat-box">
-              <div class="stat-number-large">&lt;2s</div>
+              <div class="stat-number-large">&lt;1.0s</div>
               <div class="stat-description">Avg Load Time</div>
             </div>
             <div class="stat-box">
@@ -409,7 +409,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="contact-icon">📍</div>
                 <div>
                   <h4>Location</h4>
-                  <p>Miami, FL<br>Fort Lauderdale, FL<br>Hollywood, FL<br>Gainesville, FL<br>Ocala, FL<br>Orlando, FL</p>
+                  <p>Miami, FL<br>Fort Lauderdale, FL<br>Hollywood, FL<br>Gainesville, FL<br>Ocala, FL<br>Orlando, FL<br>Jacksonville, FL<br>West Palm Beach, FL<br>Tallahassee, FL</p>
                 </div>
               </div>
             </div>
@@ -2258,9 +2258,10 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .project-header {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
       }
 
       .project-metrics {
@@ -2383,7 +2384,7 @@ import Layout from '../layouts/Layout.astro';
             statNumber.textContent = '<0.0s';
             const numberElement = statNumber;
             const start = 0;
-            const target = 2;
+            const target = 1;
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = start;
